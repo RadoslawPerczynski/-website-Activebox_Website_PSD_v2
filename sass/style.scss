@@ -1,0 +1,534 @@
+// ===Variables===
+$red: #e84545;
+$black: #2d3033;
+$white: #fff;
+$grey: #6c7279;
+$raleway: 'Raleway', sans-serif;
+$light: 300;
+$regular: 400;
+$semi-bold: 600;
+$bold: 700;
+// ===/Variables===
+
+// ===MIXINS===
+    //=mixins refered to text=
+@mixin h1-set {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 65px;
+    font-weight: 700;
+    color: $white;
+    @include media-sm-screen {
+        font-size: 60px;
+    }
+}
+@mixin h3-set {
+    font-size: 28px;
+    font-weight: $light;
+}
+@mixin h4-set {
+    font-size: 22px;
+    line-height: 35px;
+    font-weight: $regular;
+    color: $white;
+}
+@mixin h5-set-r {
+    font-size: 16px;
+    font-weight: $regular;
+}
+@mixin h5-set-sb {
+    font-size: 16px;
+    font-weight: $semi-bold;
+}
+@mixin h5-set-b {
+    font-size: 16px;
+    font-weight: $bold;
+}
+@mixin p-set-r {
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: $regular;
+}
+@mixin p-set-b {
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: $bold;
+}
+    //=/mixins refered to text=
+
+    //=other=
+@mixin btn-set {
+    background-color: $red;
+    color: $white;
+    width: 200px;
+    height: 50px;
+    @include h5-set-sb;
+}
+@mixin social-media-link {
+    display: inline-block;
+    color: #c7cbcd;
+    border: 2px solid #e9edef;
+    font-size: 18px;
+    text-align: center;
+}
+@mixin transform($value) {
+     -webkit-transform: $value; /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+      -ms-transform: $value; /* IE 9 */
+          transform: $value; /* IE 10, Fx 16+, Op 12.1+ */
+}
+    //=other=
+
+    // ===media_mixins===
+@mixin media-xs-screen {  
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+@mixin media-sm-screen {  
+    @media screen and (min-width: 768px) and (max-width:991px) {
+        @content;
+    }
+}
+@mixin media-md-screen { 
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin media-xs-sm-screen {
+    @media screen and (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin media-sm-md-screen { 
+    @media screen and (min-width: 798px) and (max-width: 1199px) {
+        @content;
+    }
+}
+    // ===/media_mixins===
+
+// ===/MIXINS===
+
+//===CODE=== 
+
+// ===NAV-AND-JUMBO===
+
+h3, h4, h5, p {
+    font-family: $raleway;
+}
+.nav-and-jumbo {
+    background: linear-gradient(rgba(43, 46, 74, 0.9), rgba(43, 46, 74, 0.9)), url('https://zapodaj.net/images/926924bf77e71.jpg');
+    .navbar-inverse {
+        background: none;
+        border: none;
+        .container {
+            border-bottom: 1px solid $grey;
+        }
+    }
+    .navbar-header {
+        @include media-sm-screen {
+            width: 100%;
+        }
+        .navbar-brand {
+            @include media-sm-screen {
+                width: 100%;
+                margin: 0;
+            }
+        }
+        img {
+            padding-top: 15px;  
+            @include media-sm-screen {
+                margin: 0 auto;
+            }   
+            @include media-xs-sm-screen {
+                padding-top: 0;
+            }
+        }
+    }
+    .navbar-collapse {
+        padding: 0;
+        @include media-sm-screen {
+            width: 100%;
+        }
+        .nav.navbar-nav {
+            padding: 15px 0 15px 15px;
+            @include media-sm-screen {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            }
+            @include media-xs-screen {
+                width: 100%;
+            }
+            li {
+                padding-left: 50px;
+                @include media-sm-screen {
+                    padding-left: 0;
+                }
+                @include media-xs-screen {
+                    text-align: center;
+                    font-size: 20px;
+                    padding: 0;
+                }
+            }
+            a {
+                color: $white;
+                opacity: 0.8;
+                padding: 15px 0;
+                transition: .1s;
+                &:hover {
+                    color: $red;
+                }
+            }
+        }
+    }
+    .jumbotron {
+        background: none;
+        @include media-sm-screen {
+            padding: 10px;
+        }
+        @include media-xs-screen {
+            padding-top: 0;
+        }
+        h1 {
+            @include h1-set;
+            margin: 30px;
+            @include media-xs-screen {
+                font-size: 32px;
+                
+            }
+            @media screen and (max-width: 400px) {
+                margin: 0 0 20px;
+            }
+        }
+        h4 {
+            @include h4-set;
+            margin: 10px 50px;
+            @include media-xs-screen {
+                font-size: 18px;  
+            }
+             @media screen and (max-width: 400px) {
+                margin: 0;
+            }
+        }
+        button {
+            @include btn-set;
+            margin: 50px auto;
+            transition: .3s;
+            &:hover {
+                background: #c62313;
+                animation: pulse 1s infinite;
+                @keyframes pulse {
+                    from {
+                        @include transform(scale3d(1, 1, 1));
+                    }
+                    50% {
+                        @include transform(scale3d(1.05, 1.05, 1.05));
+                    }
+                    to {
+                        @include transform(scale3d(1, 1, 1));
+                    }
+                }
+            }
+            @include media-xs-screen {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+// ===//NAV-AND-JUMBO===
+
+// ===ADVANTAGES===
+.advantages {
+    margin-top: 50px;
+    cursor: default;
+    i.fa {
+        color: $red;
+        font-size: 72px;
+        padding: 70px 20px 20px;
+    }
+    [class*="col"]:hover i.fa {
+        animation-name: bigger;
+        animation-duration: .5s;
+        @keyframes bigger {
+            50% {
+                @include transform(scale(1.2));
+                opacity: 0.5;
+            }
+        }
+    }
+    h5 {
+        @include h5-set-b;
+            margin-bottom: 20px;
+    }
+    p {
+        @include p-set-r;
+        @include media-xs-screen {
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+}
+// ===/ADVANTAGES===
+
+// ===GALLERY===
+.gallery {
+    margin-top: 100px;
+    .photo {
+        position: relative;
+        margin: 0 -15px;
+        overflow: hidden;
+        cursor: pointer;
+        &:hover img {
+            @include transform(scale(1.1) rotate(-3deg));
+        }
+        img {
+            width:100%;
+            height: 320px;
+            object-fit: cover;
+            transition: .3s;
+            filter: brightness(90%);
+        }
+    }
+    .overlay {
+        background: rgba(255, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: 0;
+        transition: .3s;
+        z-index: 1;
+        h5 {
+            @include h5-set-b;
+            color: $white;
+            margin-top: 8em;
+        }
+        p {
+            @include p-set-r;
+            color: $white;
+        }
+        a {
+            background: green;
+            display: block;
+            width: 100%;
+            height: 150%;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }   
+}
+// ===/GALLERY===
+
+// ===TEAM===
+.team {
+    margin-top: 50px;
+    @include media-xs-screen {
+        text-align: center;
+    }
+    img {
+        transition: 1s;
+        @include media-xs-screen {
+            margin: 0 auto;
+        }
+    }
+    h4 {
+        @include h4-set;
+        color: $black;
+        margin-top: 25px;
+        transition: .5s;
+    }
+    h5 {
+        @include h5-set-r;
+        color: $red;
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+    .member {
+        overflow: hidden;
+    }
+    [class*="col"]:hover {
+        img {
+            @include transform(scale(1.1));
+            opacity: 0.85;
+            @include media-xs-screen {
+                @include transform(scale(1.1));
+            }
+        }
+        h4 {
+            font-weight: bold;
+        }
+    }
+    .social-media {
+        margin: 30px 0 50px;
+        a {
+            @include social-media-link;
+            transition: .2s;
+            @include media-sm-screen {
+                margin-right: 10px;
+            }
+            &:hover {
+                @include transform(scale(1.2));
+                color: $red;
+                background-color: #c7cbcd;
+            }
+            i.fa {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                @include media-xs-screen {
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 28px;
+                }
+                @include media-sm-screen {
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+}
+// ===/TEAM===
+
+// ===SLIDER===
+.slider {
+    .carousel-caption {
+        position: static;
+        text-align: left;
+        font-family: 'Courgette', cursive;
+        padding: 5vw 4vw;
+        font-size: 30px;
+        @include media-md-screen {
+            font-size: 28px;
+        }
+        @include media-sm-screen {
+            font-size: 26px;
+            text-align: justify;
+            height: 290px;
+        }   
+    }
+    .sign p {
+        font-family: 'Open Sans';
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .carousel-indicators {
+        margin-left: 0;
+        left: calc(75% - 75px);
+        width: 150px;
+        @include media-xs-sm-screen {
+            left: calc(50% - 75px);
+        }
+        @include media-xs-screen {
+            bottom: 0;
+        }
+    }
+    img {
+        width: 100%;
+        height: 430px;
+        object-fit: cover;
+    }
+    .item .row {
+        background-color: #53354A;
+    }
+}
+// ===/SLIDER===
+
+// ===DOWNLOAD===
+.download {
+    .jumbotron {
+        background: none;
+    }
+    h3 {
+        @include h3-set;
+    }
+    p {
+        @include p-set-b;
+        margin: 10px auto 30px;
+    }
+    button {
+        @include btn-set;
+        transition: .5s;
+        &:hover {
+            background: #c62313;
+        }
+    }
+}
+// ===/DOWNLOAD===
+
+// ===FOOTER===
+footer {
+    .footer1 {
+        background-color: #3a3e64;
+        h5 {
+            @include h5-set-b;
+            color: $white;
+            margin-top: 60px;
+            @include media-xs-screen {
+                margin-top: 20px;
+            }
+        }
+        p {
+            @include p-set-r;
+            color: $white;
+            opacity: 0.5;
+            padding-bottom: 50px;
+            @include media-xs-screen {
+                padding-bottom: 20px;
+            }
+        }
+        .social-media-footer {
+            a {
+                @include social-media-link;
+                    transition: .2s;
+                    color: $white;
+                @include media-xs-sm-screen {
+                    margin: 10px;
+                }
+                &:hover {
+                    @include transform(scale(1.1));
+                        background-color: #c7cbcd;
+                }
+                i.fa {
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    @include media-xs-screen {
+                        width: 40px;
+                        height: 40px;
+                        line-height: 40px;
+                        font-size: 28px;
+                    }
+                    @include media-sm-screen {
+                        width: 40px;
+                        height: 40px;
+                        line-height: 40px;
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+    }
+    .footer2 {
+        background-color: #313454;
+        padding: 25px;
+        @include media-xs-screen {
+            padding: 10px;
+        }
+        p {
+            @include p-set-r;
+            color: #808080;
+        }
+        i {
+            color: $red;
+        }
+        span {
+            color: $white;
+        }
+    }
+}
+// ===/FOOTER===
