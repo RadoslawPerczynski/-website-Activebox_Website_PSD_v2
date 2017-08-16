@@ -1,8 +1,8 @@
-<h1>ActiveBOX Company's website</h1>
-<p>My single page project inspired by PSD template. Website created for fun and to make sure of my current skills. I treat it also as an exercise and to prove that the website code is better than last time. </p>
 
 ![activebox](https://user-images.githubusercontent.com/28759821/29277899-615a9428-8113-11e7-8c72-24b232f467ad.jpg)
 
+<h1>ActiveBOX Company's website</h1>
+<p>My single page project inspired by PSD template. Website created for fun and to make sure of my current skills. I treat it also as an exercise and to prove that the website code is better than last time. </p>
 <ul>
   <li>Click here to use the <a href="https://radoslawperczynski.github.io/-website-Activebox_Website_PSD_v2/" target="_blank"> Live Demo </a></li>
 </ul>
