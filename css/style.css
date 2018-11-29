@@ -2,7 +2,7 @@ h3, h4, h5, p {
   font-family: "Raleway", sans-serif; }
 
 .nav-and-jumbo {
-  background: linear-gradient(rgba(43, 46, 74, 0.9), rgba(43, 46, 74, 0.9)), url("https://zapodaj.net/images/926924bf77e71.jpg"); }
+  background: linear-gradient(rgba(43, 46, 74, 0.9), rgba(43, 46, 74, 0.9)), url("https://images.unsplash.com/photo-1531824475211-72594993ce2a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4de02145f4d6671a8771ec7ae742d07e&auto=format&fit=crop&w=1500&q=80"); }
   .nav-and-jumbo .navbar-inverse {
     background: none;
     border: none; }
