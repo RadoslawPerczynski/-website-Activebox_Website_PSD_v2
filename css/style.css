@@ -250,8 +250,8 @@ h3, h4, h5, p {
         /* IE 9 */
         transform: scale(1.1);
         /* IE 10, Fx 16+, Op 12.1+ */ } }
-  .team [class*="col"]:hover h4 {
-    font-weight: bold; }
+/*   .team [class*="col"]:hover h4 {
+    font-weight: bold; } */
   .team .social-media {
     margin: 30px 0 50px; }
     .team .social-media a {
